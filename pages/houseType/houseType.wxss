@@ -1,0 +1,109 @@
+/* pages/houseType/houseType.wxss */
+/* 通用 */
+
+.bra6 {
+  border-radius: 6rpx;
+}
+.mr8{
+  margin: 8rpx 0;
+}
+.mb30 {
+  margin-bottom: 30rpx;
+}
+
+.elli {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pinkRed {
+  color: #d9172a;
+}
+.grey {
+  color: rgb(118, 118, 119);
+}
+
+/* 轮播代码 */
+
+.imgSwiper {
+  width: 100%;
+  height: 380rpx;
+}
+
+.imgSwiper  image {
+  width: 100%;
+  height: 100%;
+}
+
+.imgSwiper .demo-text-1 {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #1aad19;
+  color: #fff;
+  font-size: 36rpx;
+}
+
+.imgSwiper .demo-text-2 {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #2782d7;
+  color: #fff;
+  font-size: 36rpx;
+}
+
+.imgSwiper .demo-text-3 {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(243, 230, 55);
+  color: #fff;
+  font-size: 36rpx;
+}
+.houseInfo{
+ padding: 5rpx 30rpx;
+}
+.houseInfo .head{
+  margin-bottom: 16rpx;
+}
+.houseInfo .head text{
+  margin-right: 10rpx;
+}
+.houseInfo .head .type,.houseInfo .projectName,.houseInfo .sum,.struc .name{
+  font-size: 40rpx;
+  font-weight: bold;
+
+}
+.houseInfo .state {
+  margin-bottom: 16rpx;
+  overflow: hidden;
+}
+.houseInfo .price {
+  margin: 16rpx 0;
+  color: #d9172a;
+}
+
+.houseInfo .state a {
+  float: left;
+  font-size: 22rpx;
+  /* background: #f0f3fa; */
+  border: 2rpx solid #d9172a;
+  color: #d9172a;
+  padding: 0 10rpx;
+  margin-right: 10rpx;
+  /* line-height: 40rpx; */
+}
+
+.houseInfo .state a.red {
+  background: #d9172a;
+  color: #fff;
+}
+.houseInfo .struc{
+  margin-top: 30rpx;
+}
+.houseInfo .projectName {
+  font-size: 40rpx;
+  font-weight: bold;
+}

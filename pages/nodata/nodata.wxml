@@ -1,0 +1,6 @@
+<!--pages/nodata/nodata.wxml-->
+<view class="nodata"> 
+  <view class="imgBox">
+      <image src="https://housecollection.oss-cn-beijing.aliyuncs.com/system-pic/d6068e02b61ee860d3c523b1e659085.png"></image>
+  </view>
+</view>

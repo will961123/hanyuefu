@@ -1,0 +1,40 @@
+<!--pages/chat/chat.wxml-->
+<!--显示咨询医生--->
+<view>
+
+	<scroll-view scroll-y scroll-into-view='{{toView}}' style='height: {{scrollHeight}};'>
+		<!-- <view class='scrollMsg'> -->
+		<block wx:key='index' wx:for='{{msgList}}' wx:for-index="index">
+
+			<!-- 单个消息1 客服发出（左） -->
+			<view class="leftBox" wx:if='{{item.fromUser=="1"}}' id='msg-{{index}}'>
+				<view style='' class="content">
+					<image style='' class="avatar" src='{{item.avatar}}'></image>
+				</view>
+				<view class="leftArrow">
+				</view>
+				<view class='leftMsg'>{{item.content}}</view>
+			</view>
+
+			<!-- 单个消息2 用户发出（右） -->
+			<view wx:else id='msg-{{index}}'  class="rightBox" >
+				<view class='rightMsg'>{{item.content}}</view>
+				<view class="rightArrow">
+				</view>
+				<view style='' class="content">
+					<image style='' class="avatar" src='{{item.avatar}}'></image>
+				</view>
+			</view>
+
+		</block>
+		<!-- </view> -->
+
+		<!-- 占位 -->
+		<view style='width: 100%; height: 18vw;'></view>
+	</scroll-view>
+
+	<view class='inputRoom' style='bottom: {{inputBottom}}'>
+    <icon class="iconfont icontupian1" mode='widthFix'> </icon>
+		<input bindconfirm='sendClick' adjust-position='{{false}}' value='{{inputVal}}' confirm-type='send' bindfocus='focus' bindblur='blur'></input>
+	</view>
+</view>

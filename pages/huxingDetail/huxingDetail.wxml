@@ -1,0 +1,53 @@
+<!--pages/huxingDetail/huxingDetail.wxml-->
+<view class="huxingDetail">
+	<!-- 
+indicator-dots='true':是否显示面板指示点,默认为false
+indicator-color='red':指示点颜色
+indicator-active-color='yellow':当前选中的指示点颜色
+autoplay='true':是否自动切换
+ -->
+	<swiper indicator-dots='{{false}}' indicator-color='orange' indicator-active-color='yellow' autoplay='true' class="imgSwiper mb20">
+		<swiper-item class='demo-text-1 bra6'>
+			<image mode="aspectFill" src="{{detail.layoutPic}}" data-src="{{detail.layoutPic}}" bindtap="previewImage"></image>
+			<view class="lengthBox">
+				共{{1}}张
+			</view>
+		</swiper-item>
+
+	</swiper>
+	<view class="content">
+		<view class="mb20">
+			<text class="huxing black">{{detail.name}} </text>
+			<text class="houseType">{{detail.layoutStructure}}</text>
+			<!-- <text class="houseType">{{detail.layoutName}}</text> -->
+		</view>
+		<view class="mb10 typeBox">
+			<text class="state bra6">在售</text>
+			<text class="type" wx:for="{{detail.layoutLight}}"  wx:key="id">{{item}}</text>
+		</view>
+		<view class="mb10">
+			<text class="total">约<text class="bigsize">{{detail.layoutPrice}}元/m²</text></text>
+		</view>
+		<view class="item mb10">
+			建筑面积（约）:
+			<text class="black">{{detail.layoutArea}}m²</text>
+		</view>
+		<view class=" item mb10">
+			户型分布：
+			<text class="black">{{detail.layoutFenbu}}</text>
+		</view>
+		<view class="item mb10">
+			项目名称：
+			<text class="black">{{detail.loupanName}}</text>
+		</view>
+		<view class="black title">户型介绍  </view>
+		<view class="textinfo">
+			{{detail.layoutDes}}  
+		</view>
+	</view>
+
+  <view bindtap="fixedBox" class="fixedBox">
+    <image mode="aspectFill" src="/common/images/fixed_loupan.png" ></image>
+    <text>楼盘</text>
+  </view>
+</view>

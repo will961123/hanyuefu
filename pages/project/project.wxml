@@ -1,0 +1,55 @@
+<!--pages/project/project.wxml-->
+<view class="project">
+  <view class='search mb30'>
+    <!-- <view class="searchCity">漯河</view>
+    <input class="searchTitle" type='text' placeholder='请输入您要搜索的项目'  confirm-type='search' value="{{inputValue}}" bindinput='inputBind' bindconfirm='query'></input>
+    <i class="iconfont iconsousuo"  bindtap='query' ></i> -->
+
+      <text class="searchCity">漯河 <text class="row2"></text> </text>
+        <image class="searchimg" mode="aspectFit"   src="/common/images/search1.png" ></image>
+     <input class="searchTitle" type='text' placeholder-style="color:#999"  placeholder='请输入您要搜索的项目'  confirm-type='search' value="{{inputValue}}" bindinput='inputBind' bindconfirm='query'></input>
+  </view>
+  <!-- 房源模块 -->
+<view class="houseInfo">
+    <view class="box bra6" wx:for="{{houseList}}" wx:key="index" data-index="{{item.louPanId}}" bindtap="detail" wx:if="{{houseList.length>0}}">
+      <view class="boxTop">
+        <view class="img">
+          <text class="saling bra6">{{item.saleStatus == '1'?'在售':'待售'}}</text>
+          <image mode="aspectFill" class="bra6" src="{{item.indexPic}}"></image>
+        </view>
+        <view class="info">
+          <view class="louPanName ellipsis">
+            <text>{{item.louPanName}}</text>
+          </view>
+          <view class="projectPrice">
+            <text>约{{item.price}}元/m²起</text>
+          </view>
+          <!-- <view class="projectInfo">
+            <text>{{item.num}}人想买</text>
+          </view> -->
+          <view class="projectLocation elli">
+            <text>{{item.address}}</text>
+          </view>
+          <view class="fitmentType">
+            <text wx:for="{{item.lightSpot}}" wx:key="itemName" wx:for-item="itemName">{{itemName}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="boxBottom bgr6" bindtap="tuijian">
+        <view class="left elli">
+        
+          <i class="iconfont iconhongbao"></i>
+          <text>靓盘好卖,佣金易拿</text>
+        </view>
+        <view>
+          <text>我要推荐</text>
+          <i class="iconfont iconyoujiantou-tianchong"></i>
+        </view>
+      </view>
+    </view>
+    <view class="noData">
+      <text>{{tips}}</text>
+    </view>
+  </view>
+
+</view>

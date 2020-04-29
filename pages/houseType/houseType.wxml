@@ -1,0 +1,25 @@
+<!--pages/houseType/houseType.wxml-->
+<view class="houseType">
+  <swiper indicator-dots='true' indicator-color='orange' indicator-active-color='yellow' autoplay='true' class="imgSwiper mb30" bindtap="navImg">
+    <swiper-item class='bra6' wx:for='{{detail.imgList}}' wx:key="index">
+      <image src="{{item.url}}"></image>
+    </swiper-item>
+  </swiper>
+  <view class="houseInfo">
+    <view class="head">
+      <text class="type">{{detail.type}}户型</text>
+      <text class="structs">{{detail.structs}}</text>
+    </view>
+    <view class="state">
+      <a href="javascript:;" class="bra6 {{index == 0?'red':''}}" wx:for='{{detail.remark}}' data-index="{{index}}" wx:key="index">{{item}}</a>
+    </view>
+    <view class="price">约 <text class="sum">{{detail.sum}}万元/套</text></view>
+    <view class="mr8"><text class="grey">建筑面积 ：</text>{{detail.jzmj}}m²</view>
+    <view class="mr8"><text class="grey">户型分布 ：</text>{{detail.hxfb}}</view>
+    <view class="mr8"><text class="grey">项目名称 ：</text>{{detail.projectName}}</view>
+    <view class="struc">
+      <view class="name">户型解析</view>
+      <view class="grey">{{detail.hxjx}}</view>
+    </view>
+  </view>
+</view>

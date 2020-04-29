@@ -1,0 +1,99 @@
+<!--pages/personInfo/personInfo.wxml-->
+<view class="personInfo">
+	<view class="header">
+		<view class="left">
+			<view wx:if='{{userInfo.nickName}}'>
+				<image src="{{userInfo.avatarUrl}}"></image>
+			</view>
+			<view wx:else>
+				<image src="https://housecollection.oss-cn-beijing.aliyuncs.com/xiaochengxu/noUser.jpg"></image>
+			</view>
+
+			<view class="user" wx:if='{{userInfo.nickName}}'>
+				<view class="nickName">{{userInfo.nickName}} </view>
+				<view class="newFLexBox">
+					<view class="qmjjr">
+						<!-- <icon class="iconfont iconwode"></icon> -->
+						<!-- <text>全民经纪人</text> -->
+						<image class="vip" src="/common/images/hot_1.png" mode="aspectFill"></image>
+						<text>尊贵访客</text>
+					</view>
+					<view class="reload">刷新身份</view>
+				</view>
+
+			</view>
+			<view class="user noUser" wx:else>
+				<view class="nickName" style="padding:40rpx 0">
+					<button open-type="getUserInfo" bindgetuserinfo="getUserInfo" style="width: 260rpx;">登录/注册 </button>
+				</view>
+			</view>
+		</view>
+		<!-- <view class="right">
+			<icon class="iconfont iconshuaxin"></icon>
+      <text>刷新身份</text> 
+		</view> -->
+    	<view class="right right2" > 
+
+			<!-- <view class="imgBox">
+				<image mode="aspectFill" src="/common/images/my_sitting.png"></image>
+			</view> -->
+		</view>
+	</view>
+	<view class="card-list bra6 light-red">
+		<view class="card-list-li" bindtap="detail">
+			<icon class="iconfont iconicon_huabanfuben"></icon>
+			<view class="remark">我的信息</view>
+		</view>
+		<!-- <view class="card-list-li">
+      <icon class="iconfont iconpresent"></icon>
+      <view class="remark">报名活动</view>
+    </view> -->
+		<!-- <view class="card-list-li">
+      <icon class="iconfont iconyouhuiquan"></icon>
+      <view class="remark">优惠券</view>
+    </view> -->
+		<view class="card-list-li" bindtap="detail">
+			<icon class="iconfont iconliwu"></icon>
+			<view class="remark">活动</view>
+		</view>
+		<view class="card-list-li" bindtap="zhiyeguwen">
+			<icon class="iconfont iconiconfront-"></icon>
+			<view class="remark">置业顾问端</view>
+		</view>
+		<!-- <view class="card-list-li">
+      <icon class="iconfont iconfenxiang"></icon>
+      <view class="remark">分享足迹</view>
+    </view> -->
+		<!-- <view class="card-list-li">
+      <icon class="iconfont iconyuyue1"></icon>
+      <view class="remark">我的预约</view>
+    </view> -->
+		<view class="card-list-li" bindtap="detail">
+			<icon class="iconfont iconico_yunyingguanli_dianjirijitongji"></icon>
+			<view class="remark">购房流程</view>
+		</view>
+		<view style="clear:both"></view>
+	</view>
+	<!-- <view class="other-list light-red bra6">
+     <view class="other-list-li">
+      <icon class="iconfont iconliebiao1"></icon>
+      <text>报备客户</text>
+    </view>
+    <view class="other-list-li">
+      <icon class="iconfont iconliebiao"></icon>
+      <text>客户列表</text>
+    </view>
+    <view class="other-list-li">
+      <icon class="iconfont icontongdaoliebiao"></icon>
+      <text>全民经纪人通道</text>
+    </view>
+    <view class="other-list-li">
+      <icon class="iconfont iconB"></icon>
+      <text>邀请经纪人注册</text>
+    </view>
+    <view class="other-list-li">
+      <icon class="iconfont iconliebiao"></icon>
+      <text>邀请经纪人注册</text>
+    </view>
+  </view> -->
+</view>

@@ -1,0 +1,250 @@
+/* pages/personInfo/personInfo.wxss */
+
+/* 通用 */
+
+.bra6 {
+  border-radius: 6rpx;
+}
+
+.mb30 {
+  margin-bottom: 30rpx;
+}
+
+.elli {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+page {
+  padding: 30rpx 30rpx 60rpx;
+  background-color: #b60005;
+  box-sizing: border-box;
+}
+
+.personInfo {}
+
+/* header */
+
+.header {
+  /* height: 150rpx; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .left {
+  display: flex;
+  flex: 1;
+}
+
+.header .left>view {
+  height: 100%;
+}
+
+.header .left image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.header .user {
+  margin-left: 30rpx;
+  margin-top: -4px;
+}
+
+.header .noUser {
+  line-height: 3
+}
+
+.header .nickName {
+  font-weight: 700;
+  font-size: 46rpx;
+  color: white;
+}
+
+.qmjjr {
+  background-color: white;
+  border-radius: 60rpx;
+  /* height: 50rpx; */
+  line-height: 40rpx;
+  padding: 0rpx 6rpx;
+  padding-right: 10rpx;
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.qmjjr .vip.vip.vip {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 6rpx;
+
+}
+
+/* .qmjjr icon {
+  font-size: 39rpx;
+  margin-top: -14rpx;
+  color: #b60005;
+} */
+
+.qmjjr text {
+  font-size: 20rpx;
+  /* padding-left: 6rpx; */
+  color: #b60005;
+  font-weight: 700;
+}
+
+.newFLexBox {
+  display: flex;
+
+}
+
+.reload {
+  font-size: 20rpx;
+  line-height: 40rpx;
+  padding: 0rpx 16rpx;
+  margin-top: 4px;
+  color: #fff;
+  box-sizing: border-box;
+  border: 1rpx solid #fff;
+  border-radius: 30rpx;
+  background: transparent;
+  margin-left: 16rpx;
+}
+
+.header .right {
+  height: 150rpx;
+  line-height: 150rpx;
+}
+
+.header .right {
+  color: white;
+}
+
+.header .right .imgBox {
+  width: 54rpx;
+  height: 54rpx;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .right2 .imgBox{
+  margin-top: -4px;
+}
+.header .right2 .imgBox>image {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.header .right2 {
+  display: flex;
+  align-items: center;
+}
+
+.header .right icon {
+  margin-right: 6rpx;
+  font-size: 42rpx;
+}
+
+.light-red {
+  margin-top: 30rpx;
+  background-color: #f8e6e6;
+}
+
+.card-list {
+  padding: 10rpx 0;
+}
+
+.card-list .card-list-li {
+  width: 25%;
+  text-align: center;
+  float: left;
+  padding: 8rpx 0;
+}
+
+.card-list icon {
+  font-size: 60rpx;
+}
+
+.card-list .card-list-li .remark {
+  font-size: 24rpx;
+  margin-top: -2px;
+}
+
+.iconicon_huabanfuben {
+  color: #5490ff;
+}
+
+.iconpresent {
+  color: #ffb650;
+}
+
+.iconyouhuiquan {
+  color: #ff660c;
+}
+
+.iconliwu {
+  color: #ff9c13;
+}
+
+.iconiconfront- {
+  color: #00c38b;
+}
+
+.iconfenxiang {
+  color: lightblue;
+}
+
+.iconyuyue1 {
+  color: #7fb8ff;
+}
+
+.iconico_yunyingguanli_dianjirijitongji {
+  color: #4c8bff;
+}
+
+.other-list {
+  padding: 20rpx 30rpx;
+}
+
+.other-list-li {
+  padding: 10rpx 0;
+  height: 64rpx;
+  line-height: 64rpx;
+  border-bottom: 2rpx solid rgb(219, 215, 215);
+}
+
+.other-list-li:last-child {
+  border-width: 0
+}
+
+.other-list-li icon {
+  font-size: 36rpx;
+  margin-right: 20rpx;
+  margin-top: -12rpx;
+
+}
+
+.iconliebiao1 {
+  color: #7fb8ff
+}
+
+.iconliebiao {
+  color: #4c8bff
+}
+
+.icontongdaoliebiao {
+  color: #ff9c13
+}
+
+.iconB {
+  color: #4c8bff
+}
+
+.iconliebiao {
+  color: #7fb8ff
+}

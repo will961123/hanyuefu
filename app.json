@@ -1,0 +1,69 @@
+{
+  "pages": [
+    "pages/shouye/shouye",
+    "pages/login/login",
+    "pages/chatList/chatList",
+    "pages/chat/chat",
+    "pages/chatAgent/chatAgent",
+    "pages/personInfo/personInfo",
+    "pages/shouquan/shouquan",
+    "pages/agent/agent",
+    "pages/mingpianjia/mingpianjia",
+    "pages/huxingDetail/huxingDetail",
+    "pages/houseType/houseType",
+    "pages/detail/detail",
+    "pages/navImg/navImg",
+    "pages/logs/logs",
+    "pages/system/system",
+    "pages/project/project",
+    "pages/index/index",
+    "pages/search/search",
+    "components/searchBox/index",
+    "pages/moreInfo/moreInfo",
+    "pages/userInfoSetting/userInfoSetting",
+    "pages/newsInfo/newsInfo",
+    "pages/moreHuXing/moreHuXing",
+    "pages/hotActive/hotActive",
+    "pages/jisuanqi/jisuanqi",
+    "pages/nodata/nodata",
+    "pages/test/test",
+    "pages/tuijian/tuijian"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#b60005",
+    "navigationBarTitleText": "东润·翰悦府",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#7c7c7c",
+    "selectedColor": "#b60005",
+    "list": [
+      {
+        "pagePath": "pages/shouye/shouye",
+        "text": "首页",
+        "iconPath": "/common/images/index.png",
+        "selectedIconPath": "/common/images/indexSelect.png"
+      },
+      {
+        "pagePath": "pages/project/project",
+        "text": "项目",
+        "iconPath": "/common/images/loupan.png",
+        "selectedIconPath": "/common/images/loupanSelect.png"
+      },
+      {
+        "pagePath": "pages/personInfo/personInfo",
+        "text": "我的",
+        "iconPath": "/common/images/personInfo.png",
+        "selectedIconPath": "/common/images/personInfoSelect.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取您的位置信息"
+    }
+  }
+}

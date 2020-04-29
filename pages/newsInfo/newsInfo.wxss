@@ -1,0 +1,9 @@
+/* pages/newsInfo/newsInfo.wxss */
+.newsInfo{
+  margin: 50rpx
+}
+.title{
+  font-weight: 700;
+  font-size: 48rpx;
+
+}

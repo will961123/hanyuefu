@@ -1,0 +1,195 @@
+/* pages/agent/agent.wxss */
+
+page {
+  width: 100%;
+  height: auto;
+  /* background-color: #b60005; */
+}
+
+:-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+/* 通用 */
+
+.bra6 {
+  border-radius: 6rpx;
+}
+
+.mb30 {
+  margin-bottom: 30rpx;
+}
+
+.elli {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.both {
+  clear: both;
+}
+
+.blue {
+  height: 200rpx;
+  background: linear-gradient(to bottom, #1487f2, #2182e9);
+}
+
+.userInfo {
+  margin: 120rpx 26rpx 0;
+}
+
+.detail {
+  border-top: 2rpx solid #eadddd;
+  transform-origin: 0px 0px;
+  opacity: 1;
+  transform: scale(1, 1);
+  background-color: White;
+  padding: 30rpx 20rpx;
+  position: absolute;
+  width: 94%;
+  top: 80rpx;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 10px #ddd;
+  left: 3%;
+}
+
+.detail .avatarBox {
+  float: left;
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 26rpx;
+  position: relative;
+}
+
+.detail .avatarBox image {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+
+.detail .info text {
+  font-size: 28rpx;
+  color: #232426;
+  margin-right: 6rpx;
+}
+
+.detail .name text {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.list-li {
+  display: flex;
+  align-items: center;
+  /* 垂直居中 */
+  padding: 25rpx 36rpx;
+  box-shadow: 0px 1px 1px rgb(240, 238, 238);
+}
+
+.list-li>view {
+  flex: 1;
+}
+
+.list-li .left {
+  display: flex;
+  align-items: center;
+}
+
+.list-li .right {
+  text-align: right;
+  max-width: 360rpx;
+  color: rgb(143, 142, 142)
+}
+
+.iconshouji,
+.icondizhi1 {
+  width: 60rpx;
+  height: 60rpx;
+  box-shadow: 0px 2px 2px rgb(240, 238, 238);
+  border-radius: 50%;
+  text-align: center;
+  font-size: 42rpx;
+  color: blue;
+  background-color: white;
+  margin-right: 20rpx;
+}
+
+.ssxm {
+  margin: 0 26rpx 0;
+  padding: 20rpx 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.name {
+  font-weight: 700
+}
+
+.more {
+  color: rgb(119, 116, 116)
+}
+
+.location {
+  margin: 0 26rpx 0
+}
+
+#share {
+  width: 400rpx;
+}
+
+.iconloufang01 {
+  font-size: 36rpx;
+}
+
+.projectName {
+  font-size: 30rpx;
+  margin-left: 20rpx;
+
+}
+
+.mc {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 14px;
+}
+
+.mc>image {
+  display: block;
+  margin: 0 auto;
+}
+
+.mc>button {
+  position: fixed;
+  left: 50%;
+  bottom: 50px;
+  transform: translate(-50%);
+  animation: move 1.2s ease-in infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(3px);
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}

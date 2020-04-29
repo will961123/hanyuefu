@@ -1,0 +1,70 @@
+<!--pages/agent/agent.wxml-->
+<view class="agent">
+
+
+	<view class="blue"></view>
+
+	<view class="detail bra6">
+		<view class="avatarBox">
+			<image src="{{detail.headPort}}"></image>
+		</view>
+		<view class="r">
+			<view class="info name">
+				<text>{{detail.propName}}</text>
+			</view>
+			<view class="info">
+				<text>置业顾问</text>
+			</view>
+			<view class="info">
+				<text>金牌置业顾问</text>
+			</view>
+		</view>
+		<view class="both"></view>
+	</view>
+
+	<view class="userInfo ">
+		<view class="list-li bra6 mb30">
+			<view class="left">
+				<icon class="iconfont iconshouji"></icon>
+				<view>手机</view>
+			</view>
+			<view class="right" data-phone="{{detail.phone}}" bindtap="cellPhone">
+				<view>{{detail.phone}}</view>
+			</view>
+		</view>
+		<view class="list-li bra6" bindtap="map" data-location="{{detail.address}}">
+			<view class="left">
+				<icon class="iconfont icondizhi1"></icon>
+				<view>售楼处地址</view>
+			</view>
+			<view class="right">
+				<view class="elli">{{detail.address}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="ssxm">
+		<view class="name">所属项目</view>
+		<!-- <view class="more">查看更多</view> -->
+	</view>
+	<view class="location ">
+		<view class="list-li bra6 mb30">
+			<view class="left">
+				<icon class="iconfont iconloufang01"></icon>
+				<view class="projectName">{{detail.louPan}}</view>
+			</view>
+
+		</view>
+	</view>
+	<view>
+		<button data-id="{{propId}}" bindtap="getQrcode" type="primary" id="share">生成图片</button>
+		<!-- <button type="primary" open-type="share" data-name="pageShare" id="share">生成图片</button> -->
+	</view>
+
+	<painter style="position: absolute; top: -9999rpx;" palette="{{imgDraw}}" bind:imgOK="onImgOK" />
+
+
+	<view wx:if="{{saveUrl}}" class="mc">
+		<image src="{{saveUrl}}" mode="widthFix" style="margin:0 auto;display:block"></image>
+		<button bindtap="saveImg" type="primary"> 保存图片 </button>
+	</view>
+</view>

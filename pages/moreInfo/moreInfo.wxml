@@ -1,0 +1,127 @@
+<!--pages/moreInfo/moreInfo.wxml-->
+<view class="test">
+	<view class="flexcity">
+		<view class="name">{{detail.louPanName}}</view>
+		<view class="price ">均价 约{{detail.price}}元/m²起</view>
+    <image class="citybg" mode="widthFix" src="/common/images/citybg.png" ></image>
+		<!-- <view class="citybg">
+    </view> -->
+	</view>
+
+	<view class="weui-cells mb20 bra6">
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">物业类型</view>
+			<view class="weui-cell__ft">{{detail.tenementNature}}</view>
+		</view>
+		<!-- <view class="weui-cell ">
+      <view class="weui-cell__bd">项目特色</view>
+      <view class="weui-cell__ft">{{detail.houseDescripe[0].xmts}}</view>
+    </view> -->
+		<!-- <view class="weui-cell ">
+      <view class="weui-cell__bd">建筑类别</view>
+      <view class="weui-cell__ft">{{detail.houseDescripe[0].jzlb}}</view>
+    </view> -->
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">装修状况</view>
+			<view class="weui-cell__ft">{{detail.decorStyle}}</view>
+		</view>
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">产权年限</view>
+			<view class="weui-cell__ft">{{detail.propertyRight}}年</view>
+		</view>
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">开发商</view>
+			<view class="weui-cell__ft">{{detail.developer}}</view>
+		</view>
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">项目地址</view>
+			<view class="weui-cell__ft">{{detail.address}}</view>
+		</view>
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">咨询电话</view>
+			<view class="weui-cell__ft">{{detail.telephone}}</view>
+		</view>
+
+	</view>
+	<view class="weui-cells mb20 bra6">
+		<!-- <view class="weui-cell ">
+      <view class="weui-cell__bd">交房时间</view>
+      <view class="weui-cell__ft">{{detail.houseDescripe[0].jfsj}}</view>
+    </view> -->
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">销售状态</view>
+			<view class="weui-cell__ft">{{detail.saleStatus == 0?'预售':'在售'}}</view>
+		</view>
+	</view>
+	<view class="weui-cells mb20 bra6">
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">占地面积</view>
+			<view class="weui-cell__ft">{{detail.floorSpace}}m²</view>
+		</view>
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">建筑面积</view>
+			<view class="weui-cell__ft">{{detail.coveredArea}}m²</view>
+		</view>
+		<!-- <view class="weui-cell ">
+      <view class="weui-cell__bd">容积率</view>
+      <view class="weui-cell__ft">{{detail.houseDescripe[0].rjl}}</view>
+    </view> -->
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">停车位</view>
+			<view class="weui-cell__ft">{{detail.truckSpace}}个</view>
+		</view>
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">总户数</view>
+			<view class="weui-cell__ft">{{detail.houseAmount}}户</view>
+		</view>
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">物业公司</view>
+			<view class="weui-cell__ft">{{detail.propertyMana}}</view>
+		</view>
+		<!-- <view class="weui-cell ">
+      <view class="weui-cell__bd">物业费</view>
+      <view class="weui-cell__ft">{{detail.houseDescripe[0].wyf}}</view>
+    </view> -->
+	</view>
+	<!-- <view class="weui-cells mb20 bra6 table">
+    <view class="weui-cell th">
+      <view class="left">预售许可证</view>
+      <view class="middle">发证时间</view>
+      <view class="right">对应楼栋</view>
+    </view>
+    <view class="weui-cell td" wx:for='{{detail.allowId}}' wx:key='key' >
+      <view class="left">{{item2.id}}</view>
+      <view class="middle">{{item2.time}}</view>
+      <view class="right">{{item2.remark}}</view>
+    </view>
+  </view> -->
+	<view class="weui-cells mb20 bra6">
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">交通</view>
+			<view class="weui-cell__ft">{{detail.traffic}}</view>
+		</view>
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">学校</view>
+			<view class="weui-cell__ft">{{detail.school}}</view>
+		</view>
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">医疗</view>
+			<view class="weui-cell__ft">{{detail.hospital}}</view>
+		</view>
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">购物</view>
+			<view class="weui-cell__ft">{{detail.shopping}}</view>
+		</view>
+		<view class="weui-cell ">
+			<view class="weui-cell__bd">餐饮</view>
+			<view class="weui-cell__ft">{{detail.restaurant}}</view>
+		</view>
+	</view>
+	<!-- <view class="weui-cells mb20 bra6">
+    <view class="weui-cell ">
+      <view class="weui-cell__bd">项目简介</view>
+      <view class="weui-cell__ft">{{detail.houseDescripe[0].des}}</view>
+    </view>
+
+  </view> -->
+</view>

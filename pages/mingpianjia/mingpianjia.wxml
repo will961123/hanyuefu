@@ -1,0 +1,25 @@
+<!--pages/mingpianjia/mingpianjia.wxml-->
+<view class="mingpianjia">
+  <view class="card-list">
+    <view class="card-list-li bra6">
+      <view class="head">
+        <image src="http://housecollection.oss-cn-beijing.aliyuncs.com/loupan-picture/louPan/1582787661643_715.png"></image>
+      </view>
+      <view class="r">
+        <view class="inner">
+          <view class="info">
+            <text>王振</text>
+          </view>
+          <view class="lab">17538132011</view>
+        </view>
+      </view>
+      <view class="btns wxBtn">
+        <text class="img msgBtn"></text>
+      </view>
+      <view class="btns" data-phone="{{item.phone}}" bindtap="cellPhone">
+        <text class="img telBtn"></text>
+      </view>
+
+    </view>
+  </view>
+</view>

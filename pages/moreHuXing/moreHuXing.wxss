@@ -1,0 +1,180 @@
+/* pages/moreHuXing/moreHuXing.wxss */
+
+/* 通用 */
+
+.bra6 {
+  border-radius: 6rpx;
+}
+
+.mb30 {
+  margin-bottom: 30rpx;
+}
+
+.elli {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pinkRed {
+  color: #d9172a;
+}
+
+.moreHuXing {
+  /* margin: 20rpx 50rpx; */
+}
+
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 66rpx;
+  height: 66rpx;
+  /* padding: 0 40rpx; */
+  padding-top: 16px;
+  /* box-sizing: border-box; */
+  position: fixed;
+  z-index: 99;
+  background-color: white;
+}
+
+.swiper-tab-list {
+  font-size: 28rpx;
+  display: inline-block;
+  color: #777;
+}
+
+.on {
+  color: #1381E8;
+  /* border-bottom: 3rpx solid #1381E8; */
+  font-weight: 700;
+}
+
+.swiper-tab-list>text {
+  display: block;
+  width: 40rpx;
+  height: 2px;
+  border-radius: 1px;
+  background: transparent;
+  margin: 0 auto;
+}
+
+.swiper-tab-list.on>text {
+  background: #1381E8;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f8f8f8;
+  position: absolute;
+  top: 80rpx;
+
+}
+
+/* .swiper-box view {
+  text-align: center;
+} */
+.mb20 {
+  margin-bottom: 12px;
+}
+
+.card-list-li {
+  padding: 30rpx 40rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.card-list-li .title {
+  font-weight: 700;
+  font-size: 38rpx;
+}
+
+.card-list-li .title {
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.card-list-li .area {
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+}
+
+.detail .left {
+  flex: 2;
+  height: 164px;
+  position: relative;
+}
+
+.detail .left .imgbox {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+  border: 2rpx solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail .left image {
+  width: 96%;
+  height: 136px;
+}
+
+.detail .right {
+  flex: 1;
+  margin-left: 20rpx;
+}
+
+.sale {
+  position: absolute;
+  background-color: red;
+  color: white;
+  padding: 4rpx 10rpx;
+  font-size: 22rpx;
+  top: 18rpx;
+  left: 15rpx;
+}
+
+.price {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: red;
+}
+
+.tot { 
+  font-size: 28rpx;
+}
+
+.apartment {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.special {
+  margin-bottom: 5rpx;
+}
+
+.tips {
+  padding: 5rpx 10rpx;
+  background-color: #f4f4f5;
+  font-size: 24rpx;
+  color: rgb(127, 128, 131);
+  margin-right: 4rpx;
+  margin-top: 4px;
+  text-align: center;
+
+
+}
+
+.swiperItem {
+  overflow-y: scroll;
+}

@@ -1,0 +1,176 @@
+/* pages/huxingDetail/huxingDetail.wxss */
+
+/* 通用 */
+page {
+  color: rgb(117, 115, 115);
+}
+
+.bra6 {
+  border-radius: 6rpx;
+}
+
+.mb10 {
+  margin-bottom: 10rpx;
+}
+
+.mb20 {
+  margin-bottom: 20rpx;
+}
+
+.elli {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.black {
+  color: black;
+}
+
+.content {
+  margin: 0 30rpx;
+}
+
+/* 轮播代码 */
+
+.imgSwiper {
+  width: 100%;
+  height: 410rpx;
+  /* position: relative; */
+}
+
+.lengthBox {
+  position: absolute;
+  right: 30rpx;
+  bottom: 20rpx;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 22rpx;
+  padding: 2rpx 26rpx;
+  border-radius: 26rpx;
+}
+
+.imgSwiper image {
+  width: 100%;
+  height: 100%;
+}
+
+.imgSwiper .demo-text-1 {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 36rpx;
+}
+
+.imgSwiper .demo-text-2 {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #2782d7;
+  color: #fff;
+  font-size: 36rpx;
+}
+
+.imgSwiper .demo-text-3 {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(243, 230, 55);
+  color: #fff;
+  font-size: 36rpx;
+}
+
+.huxing {
+  font-size: 42rpx;
+  font-weight: 700;
+}
+
+.houseType {
+  font-size: 26rpx;
+  font-weight: 700;
+  font-size: #000;
+}
+
+.state {
+  font-size: 20rpx;
+  /* width: 60rpx; */
+  text-align: center;
+  padding: 4rpx 10rpx;
+  color: white;
+  background-color: #ea4735;
+  /* background-color: #b60005; */
+}
+
+.price {
+  /* color: #ea4735; */
+  color: orangered;
+
+}
+
+.title {
+  font-size: 42rpx;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.textinfo {
+  font-size: 28rpx;
+  color: #96989b;
+  font-weight: 600;
+}
+
+.total {
+  color: #ea4735;
+  /* color: orange; */
+  font-weight: 700;
+}
+
+.total .bigsize {
+  font-size: 44rpx;
+}
+
+.item {
+  font-size: 28rpx;
+  color: #96989b;
+  font-weight: 600;
+}
+
+.item .black {
+  font-size: 28rpx;
+}
+
+.typeBox {
+  display: flex;
+  align-items: center;
+}
+
+.typeBox .type {
+  display: inline-block;
+  background: #f7f6f9;
+  color: #adaeb0;
+  font-size: 20rpx;
+  padding: 3rpx 6rpx;
+  border-radius: 6rpx;
+  margin-left: 10rpx;
+}
+
+.fixedBox {
+  background: #3d84ec;
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  position: fixed;
+  right: 20rpx;
+  bottom: 30%;
+  font-size: 20rpx;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.fixedBox >image{
+  width: 36rpx;
+  height: 36rpx;
+}

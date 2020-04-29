@@ -1,0 +1,119 @@
+/* pages/moreInfo/moreInfo.wxss */
+
+page {
+  /* background-color: #f6f7f8; */
+  background-color: #fafbfc;
+}
+
+/* 通用 */
+
+.bra6 {
+  border-radius: 6rpx;
+}
+
+.mb20 {
+  margin-bottom: 50rpx;
+}
+
+.elli {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pinkRed {
+  color: #d9172a;
+}
+
+.test {
+  padding: 0 30rpx;
+}
+
+.name {
+  padding: 40rpx 0 10rpx;
+  font-weight: 700;
+  font-size: 34rpx;
+  /* letter-spacing: 2px; */
+}
+
+.price {
+  margin-bottom: 50rpx;
+  letter-spacing: 1px;
+  font-size: 28rpx;
+  position: relative;
+  z-index: 2;
+}
+
+.flexcity {
+  /* display: flex; */
+  position: relative;
+}
+
+.citybg {
+  width: 375rpx;
+  /* height: 50px;
+  background: red; */
+  position: absolute;
+  right: 20rpx;
+  bottom: -50rpx;
+  z-index: 1;
+}
+
+.weui-cell {
+  justify-content: center;
+  align-items: baseline;
+  font-size: 28rpx;
+  background: rgb(255, 255, 255);
+  padding: 30rpx 40rpx;
+}
+
+.weui-cells {
+  /* 左上下右 */
+  /* box-shadow: 2px 0 2px 0 #999,
+    0 2px 2px 0 #999,
+    0 0px 0px 0 #ff0,
+    -2px 0 2px 0 #999; */
+
+  box-shadow: -5px 5px 19px 0px rgba(208, 206, 206, 0.6);
+  border-radius: 6rpx;
+}
+
+.weui-cell__ft {
+  text-align: left;
+  /* flex: 0 0 80%; */
+  flex: 1;
+  color: #000;
+  /* margin-left: 30rpx; */
+  font-size: 24rpx;
+}
+
+.weui-cell__bd {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 24rpx;
+  width: 144rpx;
+  flex: unset;
+}
+
+.weui-cell::before {
+  right: 16px;
+}
+
+.table {
+  padding: 20rpx 0;
+}
+
+.th>view {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.th>view,
+.td>view {
+  flex: 1;
+  text-align: center;
+}
+
+.td,
+.th {
+  padding: 16rpx 16px;
+  color: rgb(83, 71, 71);
+}

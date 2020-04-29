@@ -1,0 +1,10 @@
+/* pages/nodata/nodata.wxss */
+.imgBox {
+  text-align: center;
+  height: 560rpx;
+
+}
+
+.imgBox image {
+  height: 100%;
+}

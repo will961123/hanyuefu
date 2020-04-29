@@ -1,0 +1,11 @@
+<!--pages/shouquan/shouquan.wxml-->
+<view class="authorize">
+  
+
+  <!-- <button bindtap='onAuthLocation'>授权并获取位置</button> -->
+  <image  class="phoneImg" src="https://housecollection.oss-cn-beijing.aliyuncs.com/system-pic/6e6231b0cab3d40f37707b219f41724.png"></image>
+  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >获取用户手机号</button>
+
+<!-- <image  class="avatarImg" src="https://housecollection.oss-cn-beijing.aliyuncs.com/xiaochengxu/8f4aee6c60abdaf68c571b07c5fec68.png"></image>
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">用户信息授权</button> -->
+</view>

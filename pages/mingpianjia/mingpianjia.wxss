@@ -1,0 +1,102 @@
+/* pages/mingpianjia/mingpianjia.wxss */
+page{
+  background-color: #ccc;
+}
+/* 通用 */
+
+.bra6 {
+  border-radius: 6rpx;
+}
+
+.mb30 {
+  margin-bottom: 30rpx;
+}
+
+.elli {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.card-list{
+  margin: 0 20rpx 0;
+
+}
+.card-list-li {
+border-top: 2rpx solid #eadddd;
+transform-origin: 0px 0px;
+opacity: 1;
+transform: scale(1, 1);
+position: relative;
+padding: 30rpx 164rpx 30rpx 0;
+min-height: 70rpx;
+background-color: white;
+
+
+}
+.card-list-li .head {
+float: left;
+width: 70rpx;
+height: 70rpx;
+margin-left: 26rpx;
+margin-right: 26rpx;
+position: relative;
+
+}
+.card-list-li .head image {
+width: 100%;
+height: 100%;
+vertical-align: middle;
+border-radius: 50%;
+
+}
+.card-list-li .info text {
+font-size: 28rpx;
+color: #232426;
+margin-right: 6rpx;
+
+}
+.card-list-li .lab {
+font-size: 24rpx;
+color: #7d8084;
+margin-top: -2rpx;
+
+}
+.card-list-li .wxBtn {
+right: 100rpx;
+
+}
+.card-list-li .btns {
+position: absolute;
+top: 40rpx;
+right: 16rpx;
+font-size: 0;
+
+}
+.card-list-li .wxBtn {
+right: 100rpx;
+
+}
+
+.card-list-li .img {
+display: inline-block;
+width: 64rpx;
+height: 64rpx;
+background-position: -64rpx -140rpx;
+background: url(https://housecollection.oss-cn-beijing.aliyuncs.com/xiaochengxu/564e8e5fbd3f5ed2345784d1213ea33.png) no-repeat;
+background-size: 560rpx auto;
+
+}
+.card-list-li .telBtn{
+  background-position: 0 -140rpx;
+
+}
+.card-list-li .msgBtn{
+ background-position: -65rpx -140rpx;
+
+
+}
+
+
+
+
+
