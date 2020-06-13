@@ -70,6 +70,19 @@
 					"pathName": "pages/agent/agent",
 					"query": "scene=1249943669315330049",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/login/login",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/agent/agent",
+					"pathName": "pages/agent/agent",
+					"scene": null
 				}
 			]
 		}

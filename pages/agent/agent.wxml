@@ -55,7 +55,8 @@
 
 		</view>
 	</view>
-	<view>
+	<view> 
+		<button   bindtap="gotoHome" type="primary"  style="width:400rpx;margin-top:40rpx;margin-bottom:40rpx" >前往首页</button>
 		<button data-id="{{propId}}" bindtap="getQrcode" type="primary" id="share">生成图片</button>
 		<!-- <button type="primary" open-type="share" data-name="pageShare" id="share">生成图片</button> -->
 	</view>

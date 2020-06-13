@@ -33,7 +33,7 @@
 	</scroll-view>
 
 	<view class='inputRoom' style='bottom: {{inputBottom}}'>
-		<icon class="iconfont icontupian1" mode='widthFix'> </icon>
+		<!-- <icon class="iconfont icontupian1" mode='widthFix'> </icon> -->
 		<input bindconfirm='sendClick' adjust-position='{{false}}' value='{{inputVal}}' confirm-type='send' bindfocus='focus' bindblur='blur'></input>
 	</view>
 </view>

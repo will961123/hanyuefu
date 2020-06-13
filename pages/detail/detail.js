@@ -118,6 +118,10 @@ Page({
         showB: true
       })
     } else {
+      var phoneNumber = wx.getStorageSync('phoneNumber')
+      if(phoneNumber&&phoneNumber!=='undefined'){
+        app.globalData.userInfo.phoneNumber = phoneNumber
+      }
       if (!app.globalData.userInfo.userId) {
         wx.showToast({
           title: '请先登录,正在跳转到登录页',

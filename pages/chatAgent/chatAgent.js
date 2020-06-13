@@ -5,6 +5,7 @@ var windowWidth = wx.getSystemInfoSync().windowWidth;
 var windowHeight = wx.getSystemInfoSync().windowHeight;
 var keyHeight = 0;
 var socketOpen = false;
+var selfClose = false;
 var frameBuffer_Data, session, SocketTask;
 var fromId,toId,consId;
 // var url = 'ws://localhost:8091/IMWebSocket/1/4/1'; 
@@ -62,6 +63,36 @@ Page({
                 // var url = 'ws://192.168.0.110:8091/IMWebSocket/1/4/1';
     
     that.bottom();
+
+    that.webSocket()
+    // 创建Socket
+    SocketTask.onOpen(res => {
+      socketOpen = true;
+      console.log('监听 WebSocket 连接打开事件。', res);
+    }) 
+    SocketTask.onError(onError => {
+      console.log('监听 WebSocket 错误。错误信息', onError)
+      socketOpen = false
+    })
+    SocketTask.onMessage(function (onMessage) {
+      console.log('监听WebSocket接受到服务器的消息事件。服务器返回的消息', JSON.parse(onMessage.data));
+      var result = JSON.parse(onMessage.data);
+      var chatList;
+      chatList = result.data;
+      for (var i = 0; i < chatList.length; i++) {
+
+        if (chatList[i].fromUser == that.data.userInfo.userId) {
+          chatList[i].avatar = that.data.userInfo.avatarUrl;
+        } else if (chatList[i].fromUser == that.data.zhiyeguwenInfo.id) {
+          chatList[i].avatar = that.data.zhiyeguwenInfo.headPort;
+        }
+      }
+      msgList = msgList.concat(chatList);
+      that.setData({
+        msgList: msgList
+      })
+      that.bottom();
+    })
   },
 
   /**
@@ -69,43 +100,7 @@ Page({
    */
   onShow: function (e) {
     var that = this;
-    // console.log(socketOpen, 'socketOpen')
-    if (!socketOpen) {
-      that.webSocket()
-      // 创建Socket
-      SocketTask.onOpen(res => {
-        socketOpen = true;
-        console.log('监听 WebSocket 连接打开事件。', res);
-      })
-      SocketTask.onClose(onClose => {
-        console.log('监听 WebSocket 连接关闭事件。', onClose)
-        socketOpen = false;
-        this.webSocket()
-      })
-      SocketTask.onError(onError => {
-        console.log('监听 WebSocket 错误。错误信息', onError)
-        socketOpen = false
-      })
-      SocketTask.onMessage(function (onMessage) {
-        console.log('监听WebSocket接受到服务器的消息事件。服务器返回的消息', JSON.parse(onMessage.data));
-        var result = JSON.parse(onMessage.data);
-        var chatList;
-        chatList = result.data;
-        for (var i = 0; i < chatList.length; i++) {
-
-          if (chatList[i].fromUser == that.data.userInfo.userId) {
-            chatList[i].avatar = that.data.userInfo.avatarUrl;
-          } else if (chatList[i].fromUser == that.data.zhiyeguwenInfo.id) {
-            chatList[i].avatar = that.data.zhiyeguwenInfo.headPort;
-          }
-        }
-        msgList = msgList.concat(chatList);
-        that.setData({
-          msgList: msgList
-        })
-        that.bottom();
-      })
-    }
+    console.log(socketOpen, 'socketOpen') 
   },
   onReady: function () {
     var that = this;
@@ -130,10 +125,15 @@ Page({
   },
   onUnload:function(){
     // console.log('onUnload')
+    socketOpen = false;
+    selfClose = true
     wx.closeSocket({
       success: res => {
         console.log(' WebSocket销毁')
         socketOpen = false;
+      },
+      fail:err=>{
+        console.log(' WebSocket销毁-err',err)
       }
     })
   },
@@ -196,6 +196,8 @@ Page({
       });
 
       that.bottom()
+    }else {
+      this.webSocket()
     }
   },
   webSocket: function () {
@@ -212,6 +214,20 @@ Page({
       success: function (res) {
         socketOpen= true;
         console.log('WebSocket连接创建', res);
+
+        setTimeout(() => {
+          SocketTask.onClose(onClose => {
+            console.log('监听 WebSocket 连接关闭事件。', onClose)
+            console.log(selfClose)
+            socketOpen = false;
+            if (selfClose) {
+              return false
+            }
+            console.log('测试再次连接', that.webSocket)
+            that.webSocket()
+      
+          })
+        }, 500);
       },
       fail: function (err) {
         wx.showToast({

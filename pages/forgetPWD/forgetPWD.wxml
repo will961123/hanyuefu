@@ -1,0 +1,26 @@
+ 
+<view class="login">
+	<view class="login_title">
+		<text>修改密码</text>
+	</view>
+	<view class="login_user {{nameFocus}}">
+		<input type="text" placeholder="用户名" placeholder-style="color:rgb(173,185,193)" bindinput="bindUsername" bindfocus="onFocusName" bindblur="onBlurName"/>
+	</view>
+	 <view class="login_pwd {{psdFocus}}">
+		<input type="text" password placeholder="原密码" placeholder-style="color:rgb(173,185,193)" bindinput="bindPassword" bindfocus="onFocusPsd" bindblur="onBlurPsd"/>
+	</view> 
+	 <view class="login_pwd {{newPwdFocus}}">
+		<input type="text" password placeholder="新密码" placeholder-style="color:rgb(173,185,193)" bindinput="bindNewPwd" bindfocus="onFocusNewPwd" bindblur="onBlurNewPwd"/>
+	</view> 
+	 <view class="login_pwd {{twoNewPwdFocus}}">
+		<input type="text" password placeholder="再次输入" placeholder-style="color:rgb(173,185,193)" bindinput="bindNewTwoPwd" bindfocus="onFocusTwoNewPwd" bindblur="onBlurTwoNewPwd"/>
+	</view> 
+	<view class="login_btn">
+		<button hover-class="btn_hover" bind:tap="login">确定修改</button>
+	</view>
+
+	<view class="login_text">
+		<navigator url="../login/login" open-type="redirect" hover-class="navigator-hover">返回登录</navigator>
+		<!-- <navigator url="../login_token/login_token" open-type="redirect" hover-class="navigator-hover">使用Token登录</navigator> -->
+	</view> 
+</view>

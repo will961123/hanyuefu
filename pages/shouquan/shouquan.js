@@ -162,6 +162,10 @@ Page({
           }
           app.globalData.userInfo.phoneNumber = result.phoneNumber;
           wx.setStorageSync('userInfo', app.globalData.userInfo);
+          if(result.phoneNumber&&result.phoneNumber!=='undefined'){
+
+            wx.setStorageSync('phoneNumber', result.phoneNumber);
+          }
           console.log(app.globalData.userInfo);
           that.saveUser(app.globalData.userInfo)
         }

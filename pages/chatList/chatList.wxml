@@ -22,7 +22,7 @@
             <text class="list-content-time">{{ item.time }}</text>
           </view>
           <view class="list-content-brief">
-            <text>[{{ item.nums }}条]{{ item.message }}</text>
+            <!-- <text>[{{ item.nums }}条]{{ item.message }}</text> -->
           </view>
         </view>
       </view>

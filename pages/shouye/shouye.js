@@ -369,7 +369,8 @@ Page({
     var id = e.currentTarget.dataset.index;
     // console.log(id)
     if (id == 0) {
-      var url = "/pages/nodata/nodata";
+      var url = "/pages/hotActive/hotActive";
+      // var url = "/pages/nodata/nodata";
       wx.navigateTo({
         url: url
       })

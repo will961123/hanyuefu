@@ -20,6 +20,10 @@ App({
     //     }
     //   }
     // })
+    var userInfo = wx.getStorageSync('userInfo') 
+    if(userInfo){
+      this.globalData = userInfo
+    } 
   },
   globalData: {
     // apiUrl: 'http://192.168.0.103:8091/mobile',

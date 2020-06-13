@@ -5,6 +5,7 @@ var windowWidth = wx.getSystemInfoSync().windowWidth;
 var windowHeight = wx.getSystemInfoSync().windowHeight;
 var keyHeight = 0;
 var socketOpen = false;
+var selfClose = false
 var frameBuffer_Data, session, SocketTask;
 var fromId, toId, consId;
 // var url = 'ws://localhost:8091/IMWebSocket/1/4/1'; 
@@ -45,10 +46,10 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    msgList=[];
+    msgList = [];
     that.setData({
-      userInfo:app.globalData.userInfo,
-      zhiyeguwenInfo:app.globalData.zhiyeguwenInfo
+      userInfo: app.globalData.userInfo,
+      zhiyeguwenInfo: app.globalData.zhiyeguwenInfo
     })
     fromId = that.data.userInfo.userId;
     toId = that.data.zhiyeguwenInfo.id;
@@ -58,6 +59,38 @@ Page({
     // var url = 'wss://house.hnshengen.com/IMWebSocket//userInfo.userId/zhiyeguwenInfo.id/zhiyeguwenInfo.id'
     that.data.webSocketUrl = "wss://house.hnshengen.com/IMWebSocket/" + fromId + "/" + toId + "/" + consId;
     that.bottom();
+
+    that.webSocket()
+
+    // 创建Socket
+    SocketTask.onOpen(res => {
+      socketOpen = true;
+      console.log('监听 WebSocket 连接打开事件。', res);
+    }) 
+  
+    SocketTask.onError(onError => {
+      console.log('监听 WebSocket 错误。错误信息', onError)
+      socketOpen = false
+    })
+    SocketTask.onMessage(function (onMessage) {
+      console.log('监听WebSocket接受到服务器的消息事件。服务器返回的消息', JSON.parse(onMessage.data));
+      var result = JSON.parse(onMessage.data);
+      var chatList;
+      chatList = result.data;
+      for (var i = 0; i < chatList.length; i++) {
+
+        if (chatList[i].fromUser == that.data.zhiyeguwenInfo.id) {
+          chatList[i].avatar = that.data.zhiyeguwenInfo.headPort;
+        } else if (chatList[i].fromUser == that.data.userInfo.userId) {
+          chatList[i].avatar = that.data.userInfo.avatarUrl;
+        }
+      }
+      msgList = msgList.concat(chatList);;
+      that.setData({
+        msgList: msgList
+      })
+      that.bottom()
+    })
   },
 
   /**
@@ -65,43 +98,7 @@ Page({
    */
   onShow: function (e) {
     var that = this;
-    // console.log(socketOpen, 'socketOpen');
-    if (!socketOpen) {
-      that.webSocket()
-      // 创建Socket
-      SocketTask.onOpen(res => {
-        socketOpen = true;
-        console.log('监听 WebSocket 连接打开事件。', res);
-      })
-      SocketTask.onClose(onClose => {
-        console.log('监听 WebSocket 连接关闭事件。', onClose)
-        socketOpen = false;
-        this.webSocket()
-      })
-      SocketTask.onError(onError => {
-        console.log('监听 WebSocket 错误。错误信息', onError)
-        socketOpen = false
-      })
-      SocketTask.onMessage(function (onMessage) {
-        console.log('监听WebSocket接受到服务器的消息事件。服务器返回的消息', JSON.parse(onMessage.data));
-        var result = JSON.parse(onMessage.data);
-        var chatList;
-        chatList = result.data;
-        for (var i = 0; i < chatList.length; i++) {
-
-          if (chatList[i].fromUser == that.data.zhiyeguwenInfo.id) {
-            chatList[i].avatar = that.data.zhiyeguwenInfo.headPort;
-          } else if (chatList[i].fromUser == that.data.userInfo.userId) {
-            chatList[i].avatar = that.data.userInfo.avatarUrl;
-          }
-        }
-        msgList = msgList.concat(chatList);;
-        that.setData({
-          msgList: msgList
-        })
-        that.bottom()
-      })
-    }
+    console.log(socketOpen, 'socketOpen');  
   },
   onReady: function () {
     var that = this;
@@ -124,12 +121,17 @@ Page({
   onHide: function () {
 
   },
-  onUnload:function(){
+  onUnload: function () {
     // console.log('onUnload')
+    socketOpen = false;
+    selfClose = true
     wx.closeSocket({
       success: res => {
-        console.log(' WebSocket销毁')
+        console.log(' WebSocket销毁-success', res)
         socketOpen = false;
+      },
+      fail: err => {
+        console.log(' WebSocket销毁-err', err)
       }
     })
   },
@@ -194,6 +196,8 @@ Page({
       });
 
       that.bottom()
+    } else {
+      this.webSocket()
     }
   },
   webSocket: function () {
@@ -206,9 +210,23 @@ Page({
         'content-type': 'application/json'
       },
       method: 'post',
-      success: function (res) {
+      success: function (res) {  
         console.log('WebSocket连接创建', res);
-        socketOpen=true;
+        socketOpen = true;
+
+        setTimeout(() => {
+          SocketTask.onClose(onClose => {
+            console.log('监听 WebSocket 连接关闭事件。', onClose)
+            console.log(selfClose)
+            socketOpen = false;
+            if (selfClose) {
+              return false
+            }
+            console.log('测试再次连接', that.webSocket)
+            that.webSocket()
+      
+          })
+        }, 500);
       },
       fail: function (err) {
         wx.showToast({

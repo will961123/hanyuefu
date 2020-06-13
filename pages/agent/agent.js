@@ -46,7 +46,12 @@ Page({
 
 
   },
-  getQrcode(e) {
+  gotoHome(){
+    wx.switchTab({
+      url: '/pages/shouye/shouye',
+    })
+  },
+  getQrcode(e) { 
     var propId = e.currentTarget.dataset.id
     console.log(propId)
     wx.showLoading({
@@ -54,7 +59,7 @@ Page({
       mask: true
     })
     wx.request({
-      url: app.globalData.apiUrl + '/qrCode/getQRCode',
+      url: 'https://house.hnshengen.com/mobile' + '/qrCode/getQRCode',
       data: {
         propId: propId
       },
@@ -80,6 +85,7 @@ Page({
         }
       },
       fail: err => {
+        console.log('22',err)
         wx.hideLoading()
         wx.showToast({
           title: '生成二维码失败!',
@@ -109,7 +115,8 @@ Page({
           },
           {
             type: 'image',
-            url: drawInfo.header || 'https://qiniu-image.qtshe.com/default-avatar20170707.png',
+            url: drawInfo.header || '',
+            // url: drawInfo.header || 'https://qiniu-image.qtshe.com/default-avatar20170707.png',
             css: {
               top: '404rpx',
               left: '328rpx',
@@ -371,6 +378,7 @@ Page({
   map: function (event) {
     var _this = this;
     var location1 = event.currentTarget.dataset.location;
+    var location2 = '河南省漯河市召陵区庐山路和湘江路交叉口';
     qqmapsdk.geocoder({
       address: location1, //用户输入的地址（注：地址中请包含城市名称，否则会影响解析效果），如：'北京市海淀区彩和坊路海淀西大街74号'
       success: function (res) {
@@ -388,8 +396,15 @@ Page({
       success: function (res) { //成功后的回调
         // console.log(res)
         var res = res.result;
-        var latitude = res.location.lat;
-        var longitude = res.location.lng;
+        if (location1 == location2) {
+          var latitude = 33.5589950000;
+          var longitude = 114.1000050000;
+        } else {
+          var latitude = res.location.lat;
+          var longitude = res.location.lng;
+        }
+        // var latitude = res.location.lat;
+        // var longitude = res.location.lng;
         // console.log(latitude)
         // console.log(longitude)
         wx.openLocation({ //​使用微信内置地图查看位置。

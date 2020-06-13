@@ -1,2 +1,12 @@
 <!--pages/hotActive/hotActive.wxml-->
-<text>暂无热门活动</text>
+<view class="news">
+<view class="li" wx:for='{{newsList}}' wx:key="index" bindtap="newsInfo" data-news="{{item.id}}">
+	<view class="pic">
+		<image src="{{item.url}}"></image>
+	</view>
+	<view class="rightContent">
+		<view class="title">{{item.title}}</view>
+		<view style="  font-size: 22rpx;color:#666" class="singleInfo">{{item.updateTime}}</view>
+	</view>
+</view>
+</view>

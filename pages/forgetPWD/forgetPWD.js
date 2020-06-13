@@ -8,6 +8,8 @@ Page({
   data: {
     name: "",
     psd: "",
+    newPwd:'',
+    towNewPwd:'',
     grant_type: "password"
   },
 
@@ -71,11 +73,21 @@ Page({
     this.setData({
       name: e.detail.value
     });
-  },
-
+  }, 
   bindPassword: function (e) {
     this.setData({
       psd: e.detail.value
+    });
+  },
+
+  bindNewPwd: function (e) {
+    this.setData({
+      newPwd: e.detail.value
+    });
+  },
+  bindNewTwoPwd: function (e) {
+    this.setData({
+      towNewPwd: e.detail.value
     });
   },
   onFocusPsd: function () {
@@ -98,6 +110,28 @@ Page({
       nameFocus: ''
     })
   },
+
+
+  onFocusNewPwd: function () {
+    this.setData({
+      newPwdFocus: 'nameFocus'
+    })
+  },
+  onFocusTwoNewPwd: function () {
+    this.setData({
+      twoNewPwdFocus: 'nameFocus'
+    })
+  },
+  onBlurNewPwd: function () {
+    this.setData({
+      newPwdFocus: ''
+    })
+  },
+  onBlurTwoNewPwd: function () {
+    this.setData({
+      twoNewPwdFocus: ''
+    })
+  },
   login: function () {
     if (this.data.name == "") {
       wx.showToast({
@@ -107,9 +141,33 @@ Page({
       })
       return;
     }
-    else if (!this.data.psd || this.data.psd == "") {
+    else if (this.data.psd == ""||!this.data.psd) {
       wx.showToast({
-        title: '请输入密码',
+        title: '请输入原密码',
+        icon: 'none',
+        duration: 1000
+      })
+      return;
+    }
+    else if (this.data.newPwd == ""||!this.data.newPwd) {
+      wx.showToast({
+        title: '请输入新密码',
+        icon: 'none',
+        duration: 1000
+      })
+      return;
+    }
+    else if (this.data.towNewPwd == ""||!this.data.towNewPwd) {
+      wx.showToast({
+        title: '请再次输入新密码',
+        icon: 'none',
+        duration: 1000
+      })
+      return;
+    }
+    else if (this.data.towNewPwd !== this.data.newPwd) {
+      wx.showToast({
+        title: '请输入相同的新密码',
         icon: 'none',
         duration: 1000
       })
@@ -117,12 +175,13 @@ Page({
     }
     var obj = {
       phone: this.data.name,
-      password:this.data.psd
+      oldPassword:this.data.psd,
+      newPassword:this.data.towNewPwd
     }
     // console.log(obj);
    
-    var url = "https://house.hnshengen.com/mobile/cons/login";
-     // var url = "http://192.168.0.111:8091/mobile/cons/login";
+    var url = "https://house.hnshengen.com/mobile/cons/password";
+    //  var url = "http://192.168.0.111:8091/mobile/cons/password";
     wx.request({
       url: url,
       method: 'GET',
@@ -134,12 +193,19 @@ Page({
         // console.log(res.data)
         if (res.data.code == 200) {
           app.globalData.zhiyeguwenInfo = res.data.data;
-          var url = "/pages/chatList/chatList";
-          wx.navigateTo({
-            url: url
+          var url = "/pages/login/login"; 
+          wx.showToast({
+            title: '修改成功',
+            icon:'none'
           })
+          wx.redirectTo({
+            url: url,
+          })
+          // wx.navigateTo({
+          //   url: url
+          // })
 
-        } else if(res.data.code === 401) {
+        }else if(res.data.code === 401) {
           wx.showToast({
             title: '账号或密码错误!',
             icon: 'none',
@@ -147,7 +213,7 @@ Page({
           })
         } else {
           wx.showToast({
-            title: '登陆失败',
+            title: '修改失败',
             icon: 'none',
             duration: 1000
           })

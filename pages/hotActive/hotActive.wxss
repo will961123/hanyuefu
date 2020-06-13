@@ -1,1 +1,50 @@
 /* pages/hotActive/hotActive.wxss */
+page{
+  background-color: #f5e5e5;
+}
+
+.news{
+  padding: 0 20rpx;
+}
+.news .li {
+  /* border-bottom: 2rpx solid #eadddd; */
+  padding: 22rpx;
+  display: flex;
+  justify-content: space-around;
+  background: #eeeff6;
+  border-radius: 8rpx;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.news .li .pic {
+  /* float: left; */
+  width: 180rpx;
+  height: 130rpx;
+  margin-right: 22rpx;
+  /* flex: 1; */
+}
+
+.news .li .pic image {
+  width: 180rpx;
+  height: 130rpx;
+  /* object-fit: cover; */
+  border-radius: 8rpx;
+}
+
+.news .li .rightContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 28rpx;
+}
+
+.news .li .rightContent .title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  line-height: 1.2;
+  font-size: 26rpx;
+}

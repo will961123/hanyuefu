@@ -15,7 +15,6 @@ Page({
   onLoad: function (options) {
     var that = this;
     console.log(app.globalData.userInfo);
-
     wx.login({
       success(res) {
         console.log(res);
@@ -26,7 +25,7 @@ Page({
           data: {
             code
           },
-          success: function(res) {
+          success: function (res) {
             console.log(res.data);
 
             that.setData({
@@ -58,7 +57,7 @@ Page({
 
             that.setData(res.data);
           },
-          error: function(res) {
+          error: function (res) {
             console.log(res)
           }
         })
@@ -84,7 +83,7 @@ Page({
       header: {
         'content-type': 'application/json' // 默认值
       },
-      success: function(res) {
+      success: function (res) {
         console.log('是否在数据库', res.data.code);
         console.log('是否在数据库', res.data.data);
         if (res.data.code !== 401) {
@@ -93,29 +92,33 @@ Page({
             userInfo: res.data.data
           })
           app.globalData.userInfo = res.data.data;
+          wx.setStorageSync('userInfo', res.data.data)
           console.log('手机号', res.data.data.phoneNumber);
-          if(res.data.data.phoneNumber == undefined){
+          if (res.data.data.phoneNumber && res.data.data.phoneNumber !== 'undefined') { 
+            wx.setStorageSync('phoneNumber', res.data.data.phoneNumber)
+          }
+          if (res.data.data.phoneNumber == undefined) {
             setTimeout(() => {
               var url = "/pages/shouquan/shouquan";
               wx.reLaunch({
                 url: url
               })
             }, 1000);
-           
+
           }
         } else {
           that.setData({
             checkOutFlag: false,
-            userInfo:{}
+            userInfo: {}
           })
           app.globalData.userInfo = {};
           // that.saveUser(that.data.userInfo)
           // that.goShouYe();
-          
+
         }
         // that.goShouYe();
       }
-      
+
     })
   },
   //信息授权点击了允许
@@ -126,6 +129,7 @@ Page({
     if (e.detail.userInfo) {
       e.detail.userInfo.openId = that.data.openId;
       app.globalData.userInfo = e.detail.userInfo
+      // wx.setStorageSync('userInfo', e.detail.userInfo)
       that.setData({
         userInfo: e.detail.userInfo,
       })
@@ -134,10 +138,11 @@ Page({
       that.saveUser(e.detail.userInfo)
       // return;
     } else {
-      
+
     }
   },
   saveUser(obj) {
+
     var that = this;
     var surl = "https://house.hnshengen.com/mobile/user/saveUserInfo";
     wx.request({
@@ -147,14 +152,14 @@ Page({
       header: {
         'content-type': 'application/json' // 默认值
       },
-      success: function(res) {
-
+      success: function (res) {
+        wx.setStorageSync('userInfo', app.globalData.userInfo);
         if (res.data.code == 401) {
           console.log('插入数据失败')
         } else {
-      
+
           app.globalData.userInfo.userId = res.data.data;
-          wx.setStorageSync('userInfo', app.globalData.userInfo);
+
 
           wx.switchTab({
             url: '/pages/shouye/shouye'
@@ -212,7 +217,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-  zhiyeguwen:function(){
+  zhiyeguwen: function () {
     app.globalData.isZYGW = true;
     var url = "/pages/login/login";
     wx.navigateTo({

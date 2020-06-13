@@ -27,7 +27,8 @@
     "pages/jisuanqi/jisuanqi",
     "pages/nodata/nodata",
     "pages/test/test",
-    "pages/tuijian/tuijian"
+    "pages/tuijian/tuijian",
+    "pages/forgetPWD/forgetPWD"
   ],
   "window": {
     "backgroundTextStyle": "light",
